@@ -10,6 +10,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(session({
   secret: 'your-secret-key',    // never hardcode in source code. hard-coded here for demonstration purposes.
+  cookie: {
+    httpOnly: true,
+    sameSite: true,
+  },
   resave: false,
   saveUninitialized: true
 }));
